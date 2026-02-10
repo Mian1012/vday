@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Letter</title>
+
+<style>
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+}
+
+.screen {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen.active {
+  display: flex;
+}
+
+.center {
+  text-align: center;
+  padding: 30px;
+}
+
+img {
+  width: 220px;
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+button {
+  padding: 12px 30px;
+  margin-top: 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.continue, .yes {
+  background: #f27ba4;
+  color: white;
+}
+
+.no {
+  background: #aaa;
+  color: white;
+}
+
+.card {
+  background: rgba(255, 77, 109, 0.9);
+  color: white;
+  padding: 35px;
+  border-radius: 25px;
+  max-width: 90%;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgm" loop>
+  <source src="aphrodite.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SCREEN 1 : HI EL -->
+<div class="screen active" id="hi" style="background-color:#ffe0eb;">
+  <div class="center">
+    <h1 style="font-size:48px;">to my dearest, baby el 💕</h1>
+    <button class="continue" onclick="goStart()">Continue</button>
+  </div>
+</div>
+
+<!-- SCREEN 2 : OPEN IT -->
+<div class="screen" id="start" style="background-color:#ffe0eb;">
+  <div class="center">
+    <div style="font-size:32px;">ヽ(≧◡≦)ノ</div>
+    <h2>Will you be my Valentine?💕</h2>
+
+    <!-- GIPHY GIF (replaced image) -->
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTZhbWd5MXFwMWVsamp4dGQ5ZDQ1cnh1cXl4ZmE4ZWF0dWJ3cTliMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uKvAWApE3vWL1MAASf/giphy.gif">
+
+    <br>
+    <button class="yes" onclick="showYes()">YES 💌</button>
+    <button class="no" onclick="showNo()">No 😢</button>
+  </div>
+</div>
+
+<!-- SCREEN 3 : NO -->
+<div class="screen" id="noScreen" style="background-image:url('drama.jpg');">
+  <div class="card">
+    <h1>Oh noooooooo 😔</h1>
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWQ3NDkzaHl4eHRwcGs1Njl6emFkN3hkODk0dWt5dGl6N3I4YzAzZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fFa05KbZowXiEIyRse/giphy.gif">
+    <p>iyak nalang aq :<</p>
+    <p>mahal padin kita 💔</p>
+    <p>AAAAA ang layo mo baby</p>
+  </div>
+</div>
+
+<!-- SCREEN 4 : YES -->
+<div class="screen" id="yesScreen" style="background-image:url('yes.jpg');">
+  <div class="card">
+    <h1>YAAAAY!!! 💕</h1>
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3R3YTIyNDA0bHpyejduZWxvdHQ3cWt2Y3RsNnplM3h0Z2NkcXZvaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CzBhMlhTrNlAkYLuLS/giphy.gif">
+    <p>babyyyy message me kaagad and kiss me 😘</p>
+    <p>Happy Valentine’s Day, my baby el 💕</p>
+  </div>
+</div>
+
+<script>
+function goStart() {
+  document.getElementById("hi").classList.remove("active");
+  document.getElementById("start").classList.add("active");
+
+  const music = document.getElementById("bgm");
+  music.volume = 0.4;
+  music.play();
+}
+
+function showYes() {
+  document.getElementById("start").classList.remove("active");
+  document.getElementById("yesScreen").classList.add("active");
+}
+
+function showNo() {
+  document.getElementById("start").classList.remove("active");
+  document.getElementById("noScreen").classList.add("active");
+}
+</script>
+
+</body>
+</html>
